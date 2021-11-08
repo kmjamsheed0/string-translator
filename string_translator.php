@@ -16,6 +16,16 @@ if(!class_exists('StringTranslator')) {
 			add_action('admin_menu', array($this, 'sample_plugin_setup_menu') );
 			add_filter('the_content', array($this, 'add_content_before') );
 			add_action('wp_enqueue_scripts', array($this, 'js_init') );
+		}
+
+		public function js_init() {
+    		wp_enqueue_script( 'string-translator-js', plugins_url( '/js/string_translator.js', __FILE__ ));
+    		$translation_array = array(
+    			'some_string' => __( 'Some string to translate', 'string_translator' ),
+    			'a_value' => '10'
+			);
+			wp_set_script_translations('string-translator-js', 'string_translator', plugin_dir_path(__FILE__) . '/languages/' );
+			wp_localize_script( 'string-translator-js', 'object_name', $translation_array );
 		}		
  
 		public function sample_plugin_setup_menu()	{	
