@@ -15,10 +15,10 @@ if(!class_exists('StringTranslator')) {
 			add_action('init', array($this, 'plugin_load_textdomain') );
 			add_action('admin_menu', array($this, 'sample_plugin_setup_menu') );
 			add_filter('the_content', array($this, 'add_content_before') );
+			add_action('wp_enqueue_scripts', array($this, 'js_init') );
 		}		
  
 		public function sample_plugin_setup_menu()	{	
-    		//add_menu_page( 'Sample Plugin Page', 'Sample Plugin', 'manage_options', 'sample-plugin', array($this, 'sample_init') );
 			add_menu_page(
 			__( 'StringTranslator Setting Page', 'string_translator' ),
 			__( 'StringTranslator Setting Page', 'string_translator' ),
@@ -39,11 +39,8 @@ if(!class_exists('StringTranslator')) {
 
 		public function add_content_before($content) {
 			$date = date(get_option('date_format'));
-			$time = date("h:i:sa");
-			//$time = '123';
-			//$date = current_time( 'mysql' );	
+			$time = date("h:i:sa");	
 			$my_content = sprintf( __("Today's date is %1s and time is %2s" , 'string_translator'), $date, $time );
-			//$my_content = __("Today is ",'string_translator');
 			$full_content = $my_content.$content;
 			return $full_content; 
 		}
