@@ -9,3 +9,6 @@ var _wp$i18n = wp.i18n;
 	var _nx = _wp$i18n._nx;
   
   Add this code in js file
+  
+  
+  For more https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
