@@ -1,7 +1,7 @@
 Use this command to create a pot file
 `wp i18n make-pot . languages/my.pot`
 
-If there is two text-domain and need two pot for eeach then use like this `wp i18n make-pot legacy legacy/languages/xa-woocommerce-subscriptions.pot --slug=xa-woocommerce-subscriptions && wp i18n make-pot revamp revamp/languages/wbte-wc-subscription.pot --slug=wbte-wc-subscription`
+If there is two text-domain and need two pot for eeach then use like this `wp i18n make-pot legacy legacy/languages/legacy.pot --slug=legacy-text-domain && wp i18n make-pot revamp revamp/languages/revamp.pot --slug=revamp-text-domain`
 
 Run it on plugin folder
 
